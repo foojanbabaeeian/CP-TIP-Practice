@@ -39,18 +39,24 @@ class Villager:
         self.__catchphrase = new_catchphrase
     
     def add_item(self, item_name):
-        pass
+        self.furniture.append(item_name)
 	
 alice = Villager("Alice", "Koala", "guvnor")
-alice.__catchphrase = "boo"
-# alice.set_catchphrase("sweet dreams")
-# print(alice.catchphrase)
-# alice.set_catchphrase("#?!")
-print(alice.__catchphrase)
-# apollo = Villager("Apollo", "Eagle", "pah")
-# bones = Villager("Bones", "Dog", "ruff it up")
-# print(bones.greet_player("Fozhan"))
-# print(apollo.name)  
-# print(apollo.species)  
-# print(apollo.catchphrase) 
-# print(apollo.furniture) 
+print(alice.furniture)
+
+alice.add_item("acoustic guitar")
+print(alice.furniture)
+
+alice.add_item("cacao tree")
+print(alice.furniture)
+
+alice.add_item("nintendo switch")
+print(alice.furniture)
+
+boo = [1 , 1, 2, 3]
+check = []
+for i in boo:
+    if i not in check:
+        check.append(i)
+        print(i, boo.count(i))
+
