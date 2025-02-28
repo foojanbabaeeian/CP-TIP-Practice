@@ -232,6 +232,135 @@ target2 = 6
 gold_amounts3 = [3, 3]
 target3 = 6
 
-print(find_treasure_indices(gold_amounts1, target1))  
-print(find_treasure_indices(gold_amounts2, target2))  
-print(find_treasure_indices(gold_amounts3, target3))  
+# print(find_treasure_indices(gold_amounts1, target1))  
+# print(find_treasure_indices(gold_amounts2, target2))  
+# print(find_treasure_indices(gold_amounts3, target3))  
+
+
+'''
+Problem 1: Balanced Art Collection
+As the curator of an art gallery, you are organizing a new exhibition. You must ensure the collection of art pieces are balanced to attract the right range of buyers. A balanced collection is one where the difference between the maximum and minimum value of the art pieces is exactly 1.
+
+Given an integer array art_pieces representing the value of each art piece, write a function find_balanced_subsequence() that returns the length of the longest balanced subsequence.
+
+A subsequence is a sequence derived from the array by deleting some or no elements without changing the order of the remaining elements.
+
+def find_balanced_subsequence(art_pieces):
+    pass
+Example Usage:
+
+art_pieces1 = [1,3,2,2,5,2,3,7]
+art_pieces2 = [1,2,3,4]
+art_pieces3 = [1,1,1,1]
+
+print(find_balanced_subsequence(art_pieces1))
+print(find_balanced_subsequence(art_pieces2))
+print(find_balanced_subsequence(art_pieces3))
+Example Output:
+
+5
+Example 1 Explanation:  The longest balanced subsequence is [3,2,2,2,3].
+
+2
+0
+
+'''
+
+# def find_balanced_subsequence(art_pieces):
+
+'''
+Problem 2: Verifying Authenticity
+Your art gallery has just been shipped a new collection of numbered art pieces, and you need to verify their authenticity. The collection is considered "authentic" if it is a permutation of an array base[n].
+
+The base[n] array is defined as [1, 2, ..., n - 1, n, n], meaning it is an array of length n + 1 containing the integers from 1 to n - 1 exactly once, and the integer n twice. For example, base[1] is [1, 1] and base[3] is [1, 2, 3, 3].
+
+Write a function is_authentic_collection that accepts an array of integers art_pieces and returns True if the given array is an authentic array, and otherwise returns False.
+
+Note: A permutation of integers represents an arrangement of these numbers. For example [3, 2, 1] and [2, 1, 3] are both permutations of the series of numbers 1, 2, and 3.
+
+def is_authentic_collection(art_pieces):
+    pass
+Example Usage:
+
+collection1 = [2, 1, 3]
+collection2 = [1, 3, 3, 2]
+collection3 = [1, 1]
+
+print(is_authentic_collection(collection1))
+print(is_authentic_collection(collection2))
+print(is_authentic_collection(collection3))
+'''
+def is_authentic_collection(collection):
+    dict = {}
+    for boo in collection:
+        if boo in dict:
+            dict[boo] += 1
+        else:
+            dict[boo] = 1
+    for i in range(1, len(collection)):
+        if i not in dict:
+            return False
+        if dict[i] != 1:
+            return False
+    if dict[len(collection)] != 2:
+        return False
+    return True
+
+
+
+
+collection1 = [2, 1, 3]
+collection2 = [1, 3, 3, 2]
+collection3 = [1, 1]
+
+print(is_authentic_collection(collection1))
+print(is_authentic_collection(collection2))
+print(is_authentic_collection(collection3))
+
+'''
+Problem 4: Gallery Subdomain Traffic
+Your gallery has been trying to increase it's online presence by hosting several virtual galleries. Each virtual gallery's web traffic is tracked through domain names, where each domain may have subdomains.
+
+A domain like "modern.artmuseum.com" consists of various subdomains. At the top level, we have "com", at the next level, we have "artmuseum.com", and at the lowest level, "modern.artmuseum.com". When visitors access a domain like "modern.artmuseum.com", they also implicitly visit the parent domains "artmuseum.com" and "com".
+
+A count-paired domain is represented as "rep d1.d2.d3" where rep is the number of visits to the domain and d1.d2.d3 is the domain itself.
+
+For example, "9001 modern.artmuseum.com" indicates that "modern.artmuseum.com" was visited 9001 times.
+Given an array of count-paired domains cpdomains, return an array of the count-paired domains of each subdomain. The order of the output does not matter.
+
+def subdomain_visits(cpdomains):
+    pass
+Example Usage:
+
+cpdomains1 = ["9001 modern.artmuseum.com"]
+cpdomains2 = ["900 abstract.gallery.com", "50 impressionism.com", 
+              "1 contemporary.gallery.com", "5 medieval.org"]
+
+print(subdomain_visits(cpdomains1))
+print(subdomain_visits(cpdomains2))
+Example Output:
+
+["9001 artmuseum.com", "9001 modern.artmuseum.com", "9001 com"]
+
+["901 gallery.com", "50 impressionism.com", "900 abstract.gallery.com", "5 medieval.org", "5 org",
+"1 contemporary.gallery.com", "951 com"]
+'''
+
+def subdomain_visits(cpdomains):
+    for element in cpdomains:
+        subdomains = element.split(" ")
+        print(subdomains)
+        # [9001, "modern.artmuseum.com"]
+        subdomains[1] = subdomains[1].split(".")
+        print(subdomains)
+        print(set(subdomains[1]))
+        # ["modern", "artmuseum", "com"]
+        dict = {}
+
+
+cpdomains1 = ["9001 modern.artmuseum.com"]
+cpdomains2 = ["900 abstract.gallery.com", "50 impressionism.com", 
+              "1 contemporary.gallery.com", "5 medieval.org"]
+
+print(subdomain_visits(cpdomains1))
+print(subdomain_visits(cpdomains2))
