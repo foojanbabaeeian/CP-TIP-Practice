@@ -67,7 +67,7 @@ def reverse_list(lst):
 
     # Index through the list with the left and right pointers 
     while (l < r):
-        print("Boo")
+        # print("Boo")
         lst[l], lst[r] = lst[r] , lst[l]
 
         l += 1
@@ -77,3 +77,4 @@ def reverse_list(lst):
 
 lst = ["pooh", "christopher robin", "piglet", "roo", "eeyore"]
 print(reverse_list(lst))
+
